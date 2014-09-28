@@ -1,0 +1,93 @@
+/* 
+  UITableView+loadView.template
+  Base
+
+  Created by Justin on 14-5-10.
+  Copyright (c) 2014年 wang shuguan. All rights reserved.
+*/
+#import "UITableView+loadView.h"
+@interface NoticeViewController : ViewControllerImpl<UIView_LoadViewDelegate>{
+    
+    __weak IBOutlet UITableView_loadView *_tableView;
+    NSMutableArray * _dataList;
+}
+@implementation NoticeViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    _dataList = [NSMutableArray new];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(goAddNotice)];
+
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [_dataList removeAllObjects];
+    [self showAnimated:YES title:@"加载数据中。。。" whileExecutingBlock:^CGDataResult *{
+        return [Service getAllNoteicesWithIndex:UInt2Str((unsigned long)ceilf(_dataList.count/[LOADCOUNT floatValue]))];
+    } completionBlock:^(BOOL b, CGDataResult *r) {
+        if (b) {
+            [_dataList addObjectsFromArray:r.dataList];
+            [_tableView reloadData];
+        }
+    }];
+}
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+-(NSString *)title{
+    return @"公告";
+}
+-(UITabBarItem *)tabBarItem{
+    return [[UITabBarItem alloc] initWithTitle:self.title image:[UIImage imageNamed:@"icon_group"] tag:2];
+}
+
+-(BOOL)hidesBottomBarWhenPushed{
+    return NO;
+}
+#pragma mark -
+
+
+
+-(void)loadMore{
+    CGDataResult * result = [Service getAllNoteicesWithIndex:UInt2Str((unsigned long)ceilf(_dataList.count/[LOADCOUNT floatValue]))];
+    [_dataList addObjectsFromArray:result.dataList];
+}
+-(void)refreshView{
+    [_dataList removeAllObjects];
+    CGDataResult * result = [Service getAllNoteicesWithIndex:UInt2Str((unsigned long)ceilf(_dataList.count/[LOADCOUNT floatValue]))];
+    [_dataList addObjectsFromArray:result.dataList];
+}
+/**针对父类的私有初始化内容**/
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _dataList.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NoticeCell *cell = CreateCell(@"NoticeCell");
+    cell.data = [_dataList objectAtIndex:indexPath.row];
+    cell.indexPath = indexPath;
+    return cell;
+}
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return NO;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    EntityNotice *data = [_dataList objectAtIndex:indexPath.row];
+    NoticeCell *cell = CreateCell(@"NoticeCell");
+    NSString *str = data.contents;
+    CGSize size = CGSizeZero;
+    if (IS_IOS7_DEVICE) {
+        size = [ str boundingRectWithSize:CGSizeMake(cell.labelContent.frame.size.width, 2000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:cell.labelContent.font} context:nil].size;
+    }else{
+        size = [str sizeWithFont:cell.labelContent.font constrainedToSize:CGSizeMake(cell.labelContent.frame.size.width, 2000) lineBreakMode:cell.labelContent.lineBreakMode];
+    }
+    return size.height+30;
+}
+#pragma mark - custom methods
+-(void)goAddNotice{
+    [self.navigationController pushViewController:CreateViewController(@"NoticeAddViewController") animated:YES];
+}

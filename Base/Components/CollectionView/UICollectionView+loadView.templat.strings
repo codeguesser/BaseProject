@@ -1,0 +1,68 @@
+/* 
+  UICollectionView+loadView.templat.strings
+  Zhuangshi
+
+  Created by shuguan on 14-9-10.
+  Copyright (c) 2014年 wang shuguan. All rights reserved.
+*/
+#pragma mark - -------针对父类的私有初始化内容
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return [_loadDelegate collectionView:collectionView numberOfItemsInSection:section];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return [_loadDelegate collectionView:collectionView cellForItemAtIndexPath:indexPath];
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (_loadDelegate&&[_loadDelegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)]) {
+        [_loadDelegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+    }
+}
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    if (_loadDelegate&&[_loadDelegate respondsToSelector:@selector(numberOfSectionsInCollectionView:)]) {
+        return [_loadDelegate numberOfSectionsInCollectionView:collectionView];
+    }else{
+        return 1;
+    }
+}
+#pragma mark -- delegate for header view and footer view
+//头部大小
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    if (_loadDelegate&&[_loadDelegate respondsToSelector:@selector(collectionView:layout:referenceSizeForHeaderInSection:)]) {
+        return [_loadDelegate collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section];
+    }else{
+        return CGSizeZero;
+    }
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
+    if (_loadDelegate&&[_loadDelegate respondsToSelector:@selector(collectionView:layout:referenceSizeForFooterInSection:)]) {
+        return [_loadDelegate collectionView:collectionView layout:collectionViewLayout referenceSizeForFooterInSection:section];
+    }else{
+        return CGSizeZero;
+    }
+}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    if (_loadDelegate&&[_loadDelegate respondsToSelector:@selector(collectionView:viewForSupplementaryElementOfKind:atIndexPath:)]) {
+        return [_loadDelegate collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
+    }else{
+        UICollectionReusableView *view = [UICollectionReusableView new];
+        view.hidden = YES;
+        view.frame = CGRectZero;
+        return view;
+    }
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (_loadDelegate&&[_loadDelegate respondsToSelector:@selector(collectionView:layout:sizeForItemAtIndexPath:)]) {
+        return [_loadDelegate collectionView:collectionView layout:collectionViewLayout sizeForItemAtIndexPath:indexPath];
+    }else{
+        return [(UICollectionViewFlowLayout *)collectionViewLayout itemSize];
+    }
+}
+
+#pragma mark – UICollectionViewDelegateFlowLayout
+
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return [_loadDelegate collectionView:collectionView layout:collectionViewLayout insetForSectionAtIndex:section];
+}
