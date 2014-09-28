@@ -67,7 +67,7 @@
 }
 - (void)showAnimated:(BOOL)animated title:(NSString *)title whileExecutingBlock:(EXECUTE_BLOCK)block completionBlock:(COMPLETE_BLOCK)completion{
     
-    [self showAnimated:YES title:title post:NO whileExecutingBlock:block completionBlock:completion];
+    [self showAnimated:animated title:title post:NO whileExecutingBlock:block completionBlock:completion];
     
 }
 - (void)showAnimated:(BOOL)animated title:(NSString *)title post:(BOOL)isPost whileExecutingBlock:(EXECUTE_BLOCK)block completionBlock:(COMPLETE_BLOCK)completion{
