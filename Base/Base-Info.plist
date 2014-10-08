@@ -35,6 +35,10 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>允许在后台获取您的位置一遍提供最近的信息</string>
+	<key>NSLocationWhenInUseDescription</key>
+	<string>允许在获取您的位置一遍提供最近的信息</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -11,7 +11,13 @@
 #import <KSCrash/KSCrash.h>
 #import <KSCrash/KSCrashInstallationQuincyHockey.h>
 #import <AlipaySDK/AlipaySDK.h>
-
+@import CoreLocation;
+@interface CGDelegate()<CLLocationManagerDelegate>{
+#if U_SUPPORT_GPS==YES
+    CLLocationManager *m;
+#endif
+}
+@end
 @implementation CGDelegate
 
 -(id)init{
@@ -27,6 +33,7 @@
     [self setupDataBase];
     if([U_CRASH_URL length]>0)[self setupCrashRepot];
     if([U_APPID length]>0)[self setupRemindToRate];
+    if(U_SUPPORT_GPS)[self setupGPS];
 }
 -(void)applicationTerminate{
     [MagicalRecord cleanUp];
@@ -64,7 +71,32 @@
     NSLog(@"%@",PROJECT_NAME);
     [MagicalRecord setupCoreDataStackWithStoreNamed:[NSString stringWithFormat:@"%@.sqlite",PROJECT_NAME]];
 }
-
+#pragma 启动GPS
+-(void)setupGPS{
+    
+#if U_SUPPORT_GPS==YES
+    m = [[CLLocationManager alloc] init];
+    m.delegate = self;
+    if ([m respondsToSelector:NSSelectorFromString(@"requestWhenInUseAuthorization")]){
+        [m requestAlwaysAuthorization]; // 永久授权
+        [m requestWhenInUseAuthorization]; //使用中授权
+    }
+    m.desiredAccuracy = kCLLocationAccuracyBest;
+    m.distanceFilter = 1000.0f;
+    [m startUpdatingLocation];
+#endif
+}
+#if U_SUPPORT_GPS==YES
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    if (locations.count>0) {
+        CLLocation *l = locations[0];
+        URLLog(@"%f,%f",l.coordinate.latitude,l.coordinate.longitude);
+        [ShareHandle shareHandle].shareLocation = l;
+        [m stopUpdatingLocation];
+    }
+}
+#endif
+#pragma mark - 支付宝
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     //如果极简SDK不可用，会跳转支付宝钱包进行支付，需要将支付宝钱包的支付结果回传给SDK
