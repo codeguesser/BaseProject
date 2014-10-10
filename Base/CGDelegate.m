@@ -91,7 +91,7 @@
     if (locations.count>0) {
         CLLocation *l = locations[0];
         URLLog(@"%f,%f",l.coordinate.latitude,l.coordinate.longitude);
-        [ShareHandle shareHandle].shareLocation = l;
+//        [ShareHandle shareHandle].shareLocation = l;
         [m stopUpdatingLocation];
     }
 }

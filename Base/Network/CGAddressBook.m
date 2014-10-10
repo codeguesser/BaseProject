@@ -51,24 +51,16 @@
         _contacts = [NSMutableArray new];
         ABAddressBookRef addressBooks = nil;
         
-        if ([[UIDevice currentDevice].systemVersion floatValue] >= 6.0)
-        {
-            addressBooks =  ABAddressBookCreateWithOptions(NULL, NULL);
-            
-            //获取通讯录权限
-            
-            dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-            
-            ABAddressBookRequestAccessWithCompletion(addressBooks, ^(bool granted, CFErrorRef error){dispatch_semaphore_signal(sema);});
-            
-            dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
-            
-            
-        }
-        else
-        {
-            addressBooks = ABAddressBookCreate();
-        }
+        addressBooks =  ABAddressBookCreateWithOptions(NULL, NULL);
+        
+        //获取通讯录权限
+        
+        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+        
+        ABAddressBookRequestAccessWithCompletion(addressBooks, ^(bool granted, CFErrorRef error){dispatch_semaphore_signal(sema);});
+        
+        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+        
         
         //获取通讯录中的所有人
         CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople(addressBooks);

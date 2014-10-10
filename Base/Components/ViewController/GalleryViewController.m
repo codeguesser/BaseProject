@@ -35,7 +35,7 @@
     _imgView.autoresizesSubviews = YES;
     _imgView.userInteractionEnabled = NO;
     if(_img)_imgView.image = _img;
-    else [_imgView setImageWithURL:[NSURL URLWithString:_url] placeholderImage:DefaultImage];
+    else [_imgView sd_setImageWithURL:[NSURL URLWithString:_url] placeholderImage:DefaultImage];
     [scollView addSubview:_imgView];
     
     

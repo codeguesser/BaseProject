@@ -113,8 +113,7 @@
 
 - (BOOL)isPureMoney:(NSString *)string{
     NSRange r;
-    NSString *regEx = @"^[0-9]+\.{0,1}[0-9]{0,}$";
-    r = [string rangeOfString:regEx options:NSRegularExpressionSearch];
+    r = [string rangeOfString:@"^[0-9]+\.{0,1}[0-9]{0,}$" options:NSRegularExpressionSearch];
     if (r.location != NSNotFound&&r.length==string.length) {
         return YES;
     } else {
