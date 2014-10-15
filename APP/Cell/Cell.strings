@@ -1,0 +1,9 @@
+/* 
+  Cell.strings
+  Base
+
+  Cell，tableview的内容，需继承CGTableViewCell，或者对应的CGCollectionViewCell
+ 
+  Created by shuguan on 14-10-15.
+  Copyright (c) 2014年 wang shuguan. All rights reserved.
+*/

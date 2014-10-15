@@ -1,0 +1,30 @@
+/* 
+  Entity.strings
+  Base
+ 
+  实体类，需要继承EntityObject
+ 
+  Created by shuguan on 14-10-15.
+  Copyright (c) 2014年 wang shuguan. All rights reserved.
+*/
+
+#import "EntityObject.h"
+
+@interface EntityItem : EntityObject
+@property (nonatomic, strong) NSString * cid;  //编号
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSString * xx;
+@end
+
+#import "EntityItem.h"
+
+@implementation EntityItem
++ (NSString *)model{
+    return @"Entity";
+}
++(EntityObject *)getObjectFromDic:(NSDictionary *)dic{
+    EntityItem *t = [[EntityItem new] Init];
+    t.cid = [dic objectForKey:@"cid"];
+    return t;
+}
+@end
