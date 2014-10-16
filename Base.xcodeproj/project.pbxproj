@@ -59,21 +59,6 @@
 		A36D4B4219BFE8DA000D6315 /* color_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A36D4B3D19BFE8DA000D6315 /* color_green@2x.png */; };
 		A36D4B4319BFE8DA000D6315 /* color_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A36D4B3E19BFE8DA000D6315 /* color_red@2x.png */; };
 		A36D4B4419BFE8DA000D6315 /* img_pic_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A36D4B3F19BFE8DA000D6315 /* img_pic_bg@2x.png */; };
-		A37D5D5419EE80130082C089 /* button.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D5319EE80130082C089 /* button.strings */; };
-		A37D5D5619EE80220082C089 /* CollectionView.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D5519EE80220082C089 /* CollectionView.strings */; };
-		A37D5D5819EE802C0082C089 /* ImageView.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D5719EE802C0082C089 /* ImageView.strings */; };
-		A37D5D5A19EE80390082C089 /* Label.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D5919EE80390082C089 /* Label.strings */; };
-		A37D5D5C19EE80400082C089 /* ScrollView.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D5B19EE80400082C089 /* ScrollView.strings */; };
-		A37D5D5E19EE80930082C089 /* TableView.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D5D19EE80930082C089 /* TableView.strings */; };
-		A37D5D6019EE809E0082C089 /* TextView.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D5F19EE809E0082C089 /* TextView.strings */; };
-		A37D5D6219EE80A90082C089 /* View.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D6119EE80A90082C089 /* View.strings */; };
-		A37D5D6419EE80BC0082C089 /* Data.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D6319EE80BC0082C089 /* Data.strings */; };
-		A37D5D6619EE80C50082C089 /* Images.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D6519EE80C50082C089 /* Images.strings */; };
-		A37D5D6819EE80D00082C089 /* Sounds.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D6719EE80D00082C089 /* Sounds.strings */; };
-		A37D5D6A19EE80DE0082C089 /* Style.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D6919EE80DE0082C089 /* Style.strings */; };
-		A37D5D6C19EE80E50082C089 /* Xml.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D6B19EE80E50082C089 /* Xml.strings */; };
-		A37D5D6E19EE81420082C089 /* Cell.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D6D19EE81420082C089 /* Cell.strings */; };
-		A37D5D7219EE81B70082C089 /* Entity.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37D5D7119EE81B70082C089 /* Entity.strings */; };
 		A3A0089619C6EEBD006376F8 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A0089519C6EEBD006376F8 /* Order.m */; };
 		A3BD112219ED5182006C86D7 /* CGDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD112019ED5182006C86D7 /* CGDelegate.m */; };
 		A3BD112319ED5182006C86D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD112119ED5182006C86D7 /* main.m */; };
@@ -1275,37 +1260,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A37D5D6019EE809E0082C089 /* TextView.strings in Resources */,
-				A37D5D6619EE80C50082C089 /* Images.strings in Resources */,
 				D018B6EE1989F0030056AF32 /* UITableView+loadView.templat in Resources */,
-				A37D5D7219EE81B70082C089 /* Entity.strings in Resources */,
 				A36D4B4319BFE8DA000D6315 /* color_red@2x.png in Resources */,
 				A36D4B4219BFE8DA000D6315 /* color_green@2x.png in Resources */,
 				A36D4B4119BFE8DA000D6315 /* color_gray.png in Resources */,
 				1BB7E06118B76BDB00ADFCDC /* dot@2x.png in Resources */,
 				D0F066A919AEC4A000A205C6 /* HomeDetailViewController.xib in Resources */,
 				1BB7E01618B748E400ADFCDC /* refresh@2x.png in Resources */,
-				A37D5D5C19EE80400082C089 /* ScrollView.strings in Resources */,
-				A37D5D6C19EE80E50082C089 /* Xml.strings in Resources */,
-				A37D5D6219EE80A90082C089 /* View.strings in Resources */,
-				A37D5D5A19EE80390082C089 /* Label.strings in Resources */,
 				D01A32EA18E1353000582AF5 /* Localizable.strings in Resources */,
 				1B5C4C1918B5F2A500ED807C /* Images.xcassets in Resources */,
 				D018B6F81989F0030056AF32 /* CGNothingView.xib in Resources */,
-				A37D5D5419EE80130082C089 /* button.strings in Resources */,
 				A3BD112719ED51A2006C86D7 /* Base-Info.plist in Resources */,
 				A34C548E19C03C8500C0F5EC /* Readme.rtf in Resources */,
-				A37D5D6819EE80D00082C089 /* Sounds.strings in Resources */,
-				A37D5D6E19EE81420082C089 /* Cell.strings in Resources */,
 				A36D4B4419BFE8DA000D6315 /* img_pic_bg@2x.png in Resources */,
 				1BB7E06018B76BDB00ADFCDC /* ring@2x.png in Resources */,
-				A37D5D6419EE80BC0082C089 /* Data.strings in Resources */,
-				A37D5D6A19EE80DE0082C089 /* Style.strings in Resources */,
-				A37D5D5619EE80220082C089 /* CollectionView.strings in Resources */,
 				A3F02CA319BFFA9B00679631 /* area.plist in Resources */,
-				A37D5D5E19EE80930082C089 /* TableView.strings in Resources */,
 				A36D4B4019BFE8DA000D6315 /* color_black@2x.png in Resources */,
-				A37D5D5819EE802C0082C089 /* ImageView.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

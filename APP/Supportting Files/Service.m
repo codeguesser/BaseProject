@@ -7,7 +7,6 @@
 //
 
 #import "Service.h"
-#import "EntityItem.h"
 #import <CoreData+MagicalRecord.h>
 @implementation Service
 

@@ -39,7 +39,7 @@ NSString *const kXMLReaderTextNodeKey = @"text";
             }
             else
             {
-                if ([branch count] > [path intValue])
+                if ([(NSArray *)branch count] > [path intValue])
                 {
                     branch = [branch objectAtIndex:[path intValue]];
                 }
