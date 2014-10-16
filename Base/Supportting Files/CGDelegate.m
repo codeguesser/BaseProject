@@ -77,10 +77,12 @@
 #if U_SUPPORT_GPS==YES
     m = [[CLLocationManager alloc] init];
     m.delegate = self;
+    #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_8_1
     if ([m respondsToSelector:NSSelectorFromString(@"requestWhenInUseAuthorization")]){
         [m requestAlwaysAuthorization]; // 永久授权
         [m requestWhenInUseAuthorization]; //使用中授权
     }
+    #endif
     m.desiredAccuracy = kCLLocationAccuracyBest;
     m.distanceFilter = 1000.0f;
     [m startUpdatingLocation];
