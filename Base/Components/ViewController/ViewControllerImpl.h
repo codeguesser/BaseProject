@@ -69,5 +69,9 @@
  *  返回的操作
  */
 - (IBAction)goBack;
+/**
+ *  用户进入登陆界面
+ */
+-(void)goToLogin;
 @end
 

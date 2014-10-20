@@ -71,7 +71,7 @@
     NSLog(@"%@",PROJECT_NAME);
     [MagicalRecord setupCoreDataStackWithStoreNamed:[NSString stringWithFormat:@"%@.sqlite",PROJECT_NAME]];
 }
-#pragma 启动GPS
+#pragma mark - 启动GPS
 -(void)setupGPS{
     
 #if U_SUPPORT_GPS==YES
@@ -93,7 +93,6 @@
     if (locations.count>0) {
         CLLocation *l = locations[0];
         URLLog(@"%f,%f",l.coordinate.latitude,l.coordinate.longitude);
-//        [ShareHandle shareHandle].shareLocation = l;
         [m stopUpdatingLocation];
     }
 }
@@ -106,5 +105,11 @@
         [[AlipaySDK defaultService] processOderWithPaymentResult:url];
     }
     return YES;
+}
+#pragma mark - 设置APNS
+-(void)setupAPNS{
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
 }
 @end

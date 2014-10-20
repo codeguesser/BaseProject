@@ -13,7 +13,7 @@
 #import "ShareHandle.h"
 #import "CGNavigationController.h"
 #pragma mark - ---------------------------------------------常量
-#define BASE_PROJECT_VERSION 5.1.5
+#define BASE_PROJECT_VERSION 5.1.7
 
 
 #define PROJECT_NAME [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleName"]

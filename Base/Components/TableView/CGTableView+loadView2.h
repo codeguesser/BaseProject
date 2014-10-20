@@ -24,7 +24,13 @@
 -(void)refreshView;
 /**针对父类的私有初始化内容**/
 @optional
+/**
+ *  上拉加载之后的那个主线程的操作
+ */
 -(void)afterLoadMore;
+/**
+ *  下拉刷新后的那个主线程操作
+ */
 -(void)afterRefreshView;
 @end
 @protocol UIViewLoadViewStateDelegate <NSObject>

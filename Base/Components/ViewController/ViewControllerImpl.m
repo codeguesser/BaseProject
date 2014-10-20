@@ -161,8 +161,8 @@
     }
 }
 -(void)goToLogin{
-    //    [self.navigationController.tabBarController presentViewController:CreateViewController(@"LoginViewController") animated:YES completion:^{
-    //    }];
+    M_GOLOGIN;
+//
 }
 -(IBAction)goBack{
     [self.navigationController popViewControllerAnimated:YES];
