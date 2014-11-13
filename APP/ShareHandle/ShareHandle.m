@@ -7,24 +7,9 @@
 //
 
 #import "ShareHandle.h"
-#import "Config.h"
-#import "ViewStyle.h"
 @implementation ShareHandle
-+(ShareHandle *)shareHandle{
-    static ShareHandle *sh;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sh = [[ShareHandle alloc]init];
-    });
-    return sh;
-}
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        //do sth here
-    }
-    return self;
+-(void)Init{
+    [super Init];
 }
 
 @end

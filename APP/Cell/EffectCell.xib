@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oy5-Rp-zfV" customClass="EffectCell">
+            <rect key="frame" x="0.0" y="0.0" width="139" height="143"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="139" height="143"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zfm-55-Jjp">
+                        <rect key="frame" x="0.0" y="0.0" width="139" height="143"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="zfm-55-Jjp" secondAttribute="trailing" id="Az9-pD-ET5"/>
+                <constraint firstItem="zfm-55-Jjp" firstAttribute="leading" secondItem="oy5-Rp-zfV" secondAttribute="leading" id="Ot8-c9-Iiy"/>
+                <constraint firstAttribute="bottom" secondItem="zfm-55-Jjp" secondAttribute="bottom" id="acS-ep-6ko"/>
+                <constraint firstItem="zfm-55-Jjp" firstAttribute="top" secondItem="oy5-Rp-zfV" secondAttribute="top" id="hjR-al-4yy"/>
+            </constraints>
+            <size key="customSize" width="139" height="143"/>
+            <connections>
+                <outlet property="_imgView" destination="zfm-55-Jjp" id="iDs-R8-52d"/>
+            </connections>
+            <point key="canvasLocation" x="145.5" y="175.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

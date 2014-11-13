@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		074C21991A148F210005998B /* PubuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 074C21971A148F210005998B /* PubuViewController.m */; };
+		074C219A1A148F210005998B /* PubuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 074C21981A148F210005998B /* PubuViewController.xib */; };
+		074C219E1A1491620005998B /* EffectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 074C219C1A1491620005998B /* EffectCell.m */; };
+		074C219F1A1491620005998B /* EffectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 074C219D1A1491620005998B /* EffectCell.xib */; };
+		074C21A21A1492340005998B /* EntityEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 074C21A11A1492340005998B /* EntityEffect.m */; };
+		0791F7AF1A135C8500796E11 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0791F7AE1A135C8500796E11 /* Cell.m */; };
+		0791F7B11A135C9D00796E11 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0791F7B01A135C9D00796E11 /* Cell.xib */; };
+		07C96DA319F6021E00404816 /* SingletonHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C96DA219F6021E00404816 /* SingletonHandle.m */; };
 		07EA9B8119E4E06D003CE6A3 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EA9B6119E4E06D003CE6A3 /* MKAnnotationView+WebCache.m */; };
 		07EA9B8219E4E06D003CE6A3 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EA9B6319E4E06D003CE6A3 /* NSData+ImageContentType.m */; };
 		07EA9B8319E4E06D003CE6A3 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EA9B6519E4E06D003CE6A3 /* SDImageCache.m */; };
@@ -62,7 +70,6 @@
 		A3A0089619C6EEBD006376F8 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A0089519C6EEBD006376F8 /* Order.m */; };
 		A3BD112219ED5182006C86D7 /* CGDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD112019ED5182006C86D7 /* CGDelegate.m */; };
 		A3BD112319ED5182006C86D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD112119ED5182006C86D7 /* main.m */; };
-		A3BD112719ED51A2006C86D7 /* Base-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3BD112519ED51A2006C86D7 /* Base-Info.plist */; };
 		A3BD114219ED52EA006C86D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD113A19ED52EA006C86D7 /* AppDelegate.m */; };
 		A3BD114319ED52EA006C86D7 /* Base.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3BD113B19ED52EA006C86D7 /* Base.xcdatamodeld */; };
 		A3BD114419ED52EA006C86D7 /* CustomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD113F19ED52EA006C86D7 /* CustomUtil.m */; };
@@ -111,8 +118,6 @@
 		D0245A8A1981F4FE007AF5B9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0245A891981F4FE007AF5B9 /* SystemConfiguration.framework */; };
 		D0A33FD4191779A200EE725D /* CGAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A33FD3191779A200EE725D /* CGAddressBook.m */; };
 		D0A6A4F018DFE00A00EE4DF6 /* ManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A6A4EF18DFE00A00EE4DF6 /* ManagedObject.m */; };
-		D0F066A819AEC4A000A205C6 /* HomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F066A619AEC4A000A205C6 /* HomeDetailViewController.m */; };
-		D0F066A919AEC4A000A205C6 /* HomeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F066A719AEC4A000A205C6 /* HomeDetailViewController.xib */; };
 		D0F066AB19AEC78D00A205C6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F066AA19AEC78D00A205C6 /* MapKit.framework */; };
 		D0F066AD19AEC79700A205C6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F066AC19AEC79700A205C6 /* CoreLocation.framework */; };
 		FCB500DA34FA4DBFA36EA051 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54529336BDD04FDB95BF6B19 /* libPods.a */; };
@@ -129,6 +134,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		074C21961A148F210005998B /* PubuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PubuViewController.h; sourceTree = "<group>"; };
+		074C21971A148F210005998B /* PubuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PubuViewController.m; sourceTree = "<group>"; };
+		074C21981A148F210005998B /* PubuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubuViewController.xib; sourceTree = "<group>"; };
+		074C219B1A1491620005998B /* EffectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectCell.h; sourceTree = "<group>"; };
+		074C219C1A1491620005998B /* EffectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectCell.m; sourceTree = "<group>"; };
+		074C219D1A1491620005998B /* EffectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EffectCell.xib; sourceTree = "<group>"; };
+		074C21A01A1492340005998B /* EntityEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityEffect.h; sourceTree = "<group>"; };
+		074C21A11A1492340005998B /* EntityEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityEffect.m; sourceTree = "<group>"; };
+		0791F7A81A13598E00796E11 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		0791F7A91A13598E00796E11 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		0791F7AA1A13598E00796E11 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
+		0791F7AD1A135C8500796E11 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		0791F7AE1A135C8500796E11 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		0791F7B01A135C9D00796E11 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		07C96DA119F6021E00404816 /* SingletonHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonHandle.h; sourceTree = "<group>"; };
+		07C96DA219F6021E00404816 /* SingletonHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonHandle.m; sourceTree = "<group>"; };
 		07EA9B6019E4E06D003CE6A3 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		07EA9B6119E4E06D003CE6A3 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		07EA9B6219E4E06D003CE6A3 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -451,6 +472,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07C96DA019F601ED00404816 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				07C96DA119F6021E00404816 /* SingletonHandle.h */,
+				07C96DA219F6021E00404816 /* SingletonHandle.m */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
 		1B5C4BF518B5F2A500ED807C = {
 			isa = PBXGroup;
 			children = (
@@ -559,6 +589,7 @@
 		1B5C4CC518B5F38600ED807C /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				07C96DA019F601ED00404816 /* Singleton */,
 				A33A753C19C6E2FA001109ED /* Alipay */,
 				D0245A811981F493007AF5B9 /* KSCrash.framework */,
 				D01A32E818E10B2E00582AF5 /* Reveal.framework */,
@@ -977,7 +1008,13 @@
 		A3BD113719ED527A006C86D7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				074C219B1A1491620005998B /* EffectCell.h */,
+				074C219C1A1491620005998B /* EffectCell.m */,
+				074C219D1A1491620005998B /* EffectCell.xib */,
 				A37D5D6D19EE81420082C089 /* Cell.strings */,
+				0791F7AD1A135C8500796E11 /* Cell.h */,
+				0791F7AE1A135C8500796E11 /* Cell.m */,
+				0791F7B01A135C9D00796E11 /* Cell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -985,6 +1022,8 @@
 		A3BD113819ED5298006C86D7 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				074C21A01A1492340005998B /* EntityEffect.h */,
+				074C21A11A1492340005998B /* EntityEffect.m */,
 				A37D5D7119EE81B70082C089 /* Entity.strings */,
 			);
 			path = Entity;
@@ -1020,6 +1059,12 @@
 				D0F066A519AEC4A000A205C6 /* HomeDetailViewController.h */,
 				D0F066A619AEC4A000A205C6 /* HomeDetailViewController.m */,
 				D0F066A719AEC4A000A205C6 /* HomeDetailViewController.xib */,
+				0791F7A81A13598E00796E11 /* TableViewController.h */,
+				0791F7A91A13598E00796E11 /* TableViewController.m */,
+				0791F7AA1A13598E00796E11 /* TableViewController.xib */,
+				074C21961A148F210005998B /* PubuViewController.h */,
+				074C21971A148F210005998B /* PubuViewController.m */,
+				074C21981A148F210005998B /* PubuViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1225,7 +1270,7 @@
 		1B5C4BF618B5F2A500ED807C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "wang shuguan";
 				TargetAttributes = {
 					1B5C4BFD18B5F2A500ED807C = {
@@ -1265,15 +1310,16 @@
 				A36D4B4219BFE8DA000D6315 /* color_green@2x.png in Resources */,
 				A36D4B4119BFE8DA000D6315 /* color_gray.png in Resources */,
 				1BB7E06118B76BDB00ADFCDC /* dot@2x.png in Resources */,
-				D0F066A919AEC4A000A205C6 /* HomeDetailViewController.xib in Resources */,
+				0791F7B11A135C9D00796E11 /* Cell.xib in Resources */,
+				074C219F1A1491620005998B /* EffectCell.xib in Resources */,
 				1BB7E01618B748E400ADFCDC /* refresh@2x.png in Resources */,
 				D01A32EA18E1353000582AF5 /* Localizable.strings in Resources */,
 				1B5C4C1918B5F2A500ED807C /* Images.xcassets in Resources */,
 				D018B6F81989F0030056AF32 /* CGNothingView.xib in Resources */,
-				A3BD112719ED51A2006C86D7 /* Base-Info.plist in Resources */,
 				A34C548E19C03C8500C0F5EC /* Readme.rtf in Resources */,
 				A36D4B4419BFE8DA000D6315 /* img_pic_bg@2x.png in Resources */,
 				1BB7E06018B76BDB00ADFCDC /* ring@2x.png in Resources */,
+				074C219A1A148F210005998B /* PubuViewController.xib in Resources */,
 				A3F02CA319BFFA9B00679631 /* area.plist in Resources */,
 				A36D4B4019BFE8DA000D6315 /* color_black@2x.png in Resources */,
 			);
@@ -1329,7 +1375,9 @@
 				07EA9B8319E4E06D003CE6A3 /* SDImageCache.m in Sources */,
 				07EA9B8A19E4E06D003CE6A3 /* UIButton+WebCache.m in Sources */,
 				D018B6F61989F0030056AF32 /* TiledPDFView.m in Sources */,
+				07C96DA319F6021E00404816 /* SingletonHandle.m in Sources */,
 				D018B6F41989F0030056AF32 /* CGScrollViewShowGetSelected.m in Sources */,
+				0791F7AF1A135C8500796E11 /* Cell.m in Sources */,
 				A3BD114319ED52EA006C86D7 /* Base.xcdatamodeld in Sources */,
 				D018B6EF1989F0030056AF32 /* CGCollectionViewCell.m in Sources */,
 				D018B6FB1989F0030056AF32 /* CropView.m in Sources */,
@@ -1348,8 +1396,10 @@
 				07EA9B8E19E4E06D003CE6A3 /* UIImageView+HighlightedWebCache.m in Sources */,
 				A3D430B219BEF6DD00B09617 /* CGTableView+loadView2.m in Sources */,
 				A3BD114219ED52EA006C86D7 /* AppDelegate.m in Sources */,
+				074C219E1A1491620005998B /* EffectCell.m in Sources */,
 				A3BD112319ED5182006C86D7 /* main.m in Sources */,
 				1B5C4D2618B5F38600ED807C /* EntityObject.m in Sources */,
+				074C21A21A1492340005998B /* EntityEffect.m in Sources */,
 				D018B7091989F0030056AF32 /* CGView.m in Sources */,
 				D018B6EB1989F0030056AF32 /* CGButtonCheckBox.m in Sources */,
 				A3BD114419ED52EA006C86D7 /* CustomUtil.m in Sources */,
@@ -1362,6 +1412,7 @@
 				A33A753919C6D9C2001109ED /* GalleryViewController.m in Sources */,
 				07EA9B9019E4E06D003CE6A3 /* UIView+WebCacheOperation.m in Sources */,
 				D018B6F71989F0030056AF32 /* CGNothingView.m in Sources */,
+				074C21991A148F210005998B /* PubuViewController.m in Sources */,
 				D018B7001989F0030056AF32 /* UICollectionView+loadView.m in Sources */,
 				A3BD112219ED5182006C86D7 /* CGDelegate.m in Sources */,
 				D018B6FF1989F0030056AF32 /* ViewControllerImpl.m in Sources */,
@@ -1398,7 +1449,6 @@
 				D01452BE198B234A00E19458 /* CGService.m in Sources */,
 				D018B7021989F0030056AF32 /* CGCollectionView.m in Sources */,
 				07EA9B8419E4E06D003CE6A3 /* SDWebImageCompat.m in Sources */,
-				D0F066A819AEC4A000A205C6 /* HomeDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

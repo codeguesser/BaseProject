@@ -19,7 +19,7 @@
     [self setupViewControllers];
     [self customizeInterface];
 
-    self.window.rootViewController = CreateViewController(@"HomeDetailViewController");
+    self.window.rootViewController = CreateViewController(@"PubuViewController");
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

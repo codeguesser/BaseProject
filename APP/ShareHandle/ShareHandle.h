@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 ling. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "Config.h"
-@interface ShareHandle : NSObject
-+(ShareHandle *)shareHandle;
+#import "SingletonHandle.h"
+
+@interface ShareHandle : SingletonHandle
+
 @end
