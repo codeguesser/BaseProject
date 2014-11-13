@@ -20,9 +20,14 @@
  */
 @property(nonatomic,assign)BOOL isXml;
 /**
- *  是否支持在意完整格式
+ *  是否支持在意完整格式，如果给予在意，那么如果获得的格式是错误的，就一定会提示网络错误，否则就是获取数据为空
  */
 @property(nonatomic,assign)BOOL isCareFormat;
+/**
+ *  设置传递的参数是否需要改为百分号模式
+ */
+@property(nonatomic,assign)BOOL isSupportPercentMode;
+
 /**
  *  通过request来获取Service对象
  *

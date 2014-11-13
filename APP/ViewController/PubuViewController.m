@@ -9,7 +9,7 @@
 #import "PubuViewController.h"
 #import "EntityEffect.h"
 #import "EffectCell.h"
-
+#import "SDWebImageDownloader.h"
 @interface PubuViewController ()<EffectCellDelegate>
 
 @end
@@ -25,11 +25,12 @@
     
     _dataList = [NSMutableArray new];
     
-    
-     [_dataList addObjectsFromArray:[EntityEffect arrFromArr:@[@"http://wenwen.sogou.com/p/20110624/20110624050923-262735514.jpg",@"http://cdn.duitang.com/uploads/item/201111/09/20111109230753_kaeuy.thumb.600_0.jpg",@"http://wenwen.sogou.com/p/20110603/20110603170851-1624396958.jpg",@"http://www.28400.net/uploadfile/2011/1229/20111229113135683.jpg",@"http://cdn.duitang.com/uploads/item/201302/23/20130223133510_inBNW.thumb.600_0.jpeg",@"http://www.mofei.com.cn/fzl/UploadPic/2012/2012227142746921.jpg",@"http://images-fast.digu365.com/421cafb1be0cb5eb81b40e9f0edfacbf_0012.jpg",@"http://img1.3lian.com/img13/c4/98/d/61.jpg",@"http://tupian.qqjay.com/u/2013/0105/7_223430_13.jpg",@"http://wenwen.sogou.com/p/20111208/20111208195633-841302618.jpg",@"http://cdn.duitang.com/uploads/item/201303/23/20130323185807_rEvC4.jpeg",@"http://images-fast.digu365.com/eacd96d8511b26bf7c1024a0ea3f92bd_0009.jpg",@"http://e.hiphotos.baidu.com/zhidao/pic/item/c8177f3e6709c93d24dd514b9f3df8dcd100545a.jpg",@"http://img4.duitang.com/uploads/item/201302/23/20130223133436_BY4fZ.thumb.600_0.jpeg"]]];
+//    
+//     [_dataList addObjectsFromArray:[EntityEffect arrFromArr:@[@"http://wenwen.sogou.com/p/20110624/20110624050923-262735514.jpg",@"http://cdn.duitang.com/uploads/item/201111/09/20111109230753_kaeuy.thumb.600_0.jpg",@"http://wenwen.sogou.com/p/20110603/20110603170851-1624396958.jpg",@"http://www.28400.net/uploadfile/2011/1229/20111229113135683.jpg",@"http://cdn.duitang.com/uploads/item/201302/23/20130223133510_inBNW.thumb.600_0.jpeg",@"http://www.mofei.com.cn/fzl/UploadPic/2012/2012227142746921.jpg",@"http://images-fast.digu365.com/421cafb1be0cb5eb81b40e9f0edfacbf_0012.jpg",@"http://img1.3lian.com/img13/c4/98/d/61.jpg",@"http://tupian.qqjay.com/u/2013/0105/7_223430_13.jpg",@"http://wenwen.sogou.com/p/20111208/20111208195633-841302618.jpg",@"http://cdn.duitang.com/uploads/item/201303/23/20130323185807_rEvC4.jpeg",@"http://images-fast.digu365.com/eacd96d8511b26bf7c1024a0ea3f92bd_0009.jpg",@"http://e.hiphotos.baidu.com/zhidao/pic/item/c8177f3e6709c93d24dd514b9f3df8dcd100545a.jpg",@"http://img4.duitang.com/uploads/item/201302/23/20130223133436_BY4fZ.thumb.600_0.jpeg"]]];
     
     _collectionView.isFooter = NO;
-    [_collectionView registerNib:[UINib nibWithNibName:@"EffectCell" bundle:nil] forCellWithReuseIdentifier:@"EffectCell"];
+    UINib *nib = [UINib nibWithNibName:@"EffectCell" bundle:nil];
+    [_collectionView registerNib:nib forCellWithReuseIdentifier:@"EffectCell"];
     
 }
 
@@ -43,14 +44,35 @@
     
 }
 -(void)refreshView{
-//    CGDataResult *h  = [[Service serviceWithRequest:[self createRequestWithPost:YES] ]effectHomege];
-//    if (h.status.boolValue) {
-//        [_dataList removeAllObjects];
-//        //[_dataList addObjectsFromArray:h.dataList];
-//        [_dataList addObjectsFromArray:h.dataList];
-//    }
+    CGDataResult *h  = [[Service serviceWithRequest:[self createRequestWithPost:YES] ]effectHomege];
+    if (h.status.boolValue) {
+        [_dataList removeAllObjects];
+        [_dataList addObjectsFromArray:h.dataList];
+        
+        for (EntityEffect *e in _dataList) {
+            [self getNewImageWithData:e];
+            do {
+                if ([e.isUpdated isEqualToString:@"YES"]) {
+                    break;
+                }
+            } while (YES);
+            
+        }
+    }
 }
-
+-(void)getNewImageWithData:(EntityEffect *)e{
+    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:e.url] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+        if (finished) {
+            e.img = image;
+            e.isUpdated = @"YES";
+        }
+    }];
+}
+-(void)afterRefreshView{
+    [_collectionView reloadData];
+}
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     EffectCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"EffectCell" forIndexPath:indexPath];
@@ -89,15 +111,13 @@
         NSMutableArray *arr = [NSMutableArray new];
         for (NSInteger i=cell.indexPath.item; i<_dataList.count; i++) {
             EntityEffect *e1 = _dataList[i];
-            if (i%3==0) {
-                e1.x = @"3";
-            }else if(i%3==1){
-                e1.x = @"108";
+            if (i%2==0) {
+                e1.x = @"5";
             }else{
-                e1.x = @"213";
+                e1.x = [NSString stringWithFormat:@"%f",(SCREEN_WIDTH-10)/2.0f];
             }
-            if (i/3>=1) {
-                EntityEffect *e2 = _dataList[i-3];
+            if (i/2>=1) {
+                EntityEffect *e2 = _dataList[i-2];
                 e1.y = [NSString stringWithFormat:@"%f",e2.y.floatValue + e2.height.floatValue+5];
             }else{
                 e1.y = 0;
@@ -107,7 +127,7 @@
         }
         [_collectionView reloadItemsAtIndexPaths:arr];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            _collectionView.contentSize = CGSizeMake(320, lastY);
+            _collectionView.contentSize = CGSizeMake(SCREEN_WIDTH, lastY);
         });
     }
 }

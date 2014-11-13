@@ -10,4 +10,5 @@
 
 @interface Service : CGService
 -(CGDataResult *)getData;
+-(CGDataResult*)effectHomege;
 @end

@@ -12,8 +12,8 @@
 +(EntityObject *)getObjectFromDic:(NSDictionary *)dic
 {
     EntityEffect *t = [[[EntityEffect alloc] init] Init];
-       t.width = @"100";
-    t.height = @"100";
+       t.width = [NSString stringWithFormat:@"%f",(SCREEN_WIDTH-10)/2.0f];
+    t.height = [NSString stringWithFormat:@"%f",(SCREEN_WIDTH-10)/2.0f];;
     t.x = @"0";
     t.y = @"0";
     t.isUpdated = @"NO";
@@ -48,7 +48,7 @@
 +(NSArray *)arrFromArr:(NSArray *)_arr{
     NSMutableArray *arr = [NSMutableArray new];
     for (NSString *s in _arr) {
-        [arr addObject:[EntityEffect getObjectFromDic:@{@"link_url":s}]];
+        [arr addObject:[EntityEffect getObjectFromDic:@{@"img_url":s}]];
 //        [arr addObject:s.url];
     }
     return arr;

@@ -12,7 +12,7 @@
 @implementation CGService
 -(CGDataResult  *)loadNetworkDataWithUrl:(NSString *)_url complete:(CGDataResult*(^)(NSData * data,NSString * str,NSMutableDictionary* dic))complete{
     NSLog(@"%@",[_url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
-    NSString *url = [_url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *url = self.isSupportPercentMode?[_url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]:_url;
     if ([self.request isKindOfClass:[ASIFormDataRequest class]]) {
         self.request.requestMethod = @"POST";
         NSArray *urls = [url componentsSeparatedByString:@"?"];
@@ -159,6 +159,7 @@
     [(CGService *)s setIsXml:NO];
     [(CGService *)s setIsCareFormat:YES];
     [(CGService *)s setRequest:request];
+    [(CGService *)s setIsSupportPercentMode:YES];
     [(CGService *)s request].timeOutSeconds = 10;
     return s;
 }

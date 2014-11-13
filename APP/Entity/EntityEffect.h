@@ -47,6 +47,7 @@
 @property(nonatomic,strong)NSString *User_name;
 @property(nonatomic,strong)NSString *Update_time;
 @property(nonatomic,strong)NSString *Xgt_apartment;
+@property(nonatomic,strong)UIImage *img;
 +(id)dataWithUrl:(NSString *)url;
 +(NSArray *)arrFromArr:(NSArray *)arr;
 @end

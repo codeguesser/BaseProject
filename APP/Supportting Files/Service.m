@@ -154,5 +154,23 @@
 //    [settings setObject:arr forKey:SHOPINGCHART_STR];
 //    return [settings synchronize];
 //}
-
+-(CGDataResult*)effectHomege
+{
+    self.request.timeOutSeconds = 10;
+    
+    NSString *methadName =@"get_xgt_li";
+    
+    
+    
+    NSString *parames = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:@{@"top":@"40"} options:0 error:nil] encoding:NSUTF8StringEncoding];
+    NSString *url = [NSString stringWithFormat:@"http://121.42.15.32:81/MethodIn.asmx/CaseMethad?methodName=%@&parames=%@",methadName,parames];
+    self.isSupportPercentMode = NO;
+    return [self loadNetworkDataWithUrl:url complete:^CGDataResult *(NSData *data,NSString * str,NSMutableDictionary *dic) {
+        
+        return [CGDataResult getResultFromDic:dic className:
+                @"EntityEffect"];
+        
+    }];
+    
+}
 @end
