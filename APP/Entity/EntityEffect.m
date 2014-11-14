@@ -49,7 +49,6 @@
     NSMutableArray *arr = [NSMutableArray new];
     for (NSString *s in _arr) {
         [arr addObject:[EntityEffect getObjectFromDic:@{@"img_url":s}]];
-//        [arr addObject:s.url];
     }
     return arr;
 }

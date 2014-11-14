@@ -16,15 +16,7 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     EntityEffect *e = self.data;
-    _imgView.image = e.img;
-    CGRect frame = _imgView.frame;
-    frame.size.width = (SCREEN_WIDTH-10)/2.0f;
-    //等比例的缩放
-    frame.size.height = e.img.size.height*_imgView.frame.size.width/e.img.size.width;
-    _imgView.frame = frame;
-    e.width = [NSString stringWithFormat:@"%f",frame.size.width];
-    e.height = [NSString stringWithFormat:@"%f",frame.size.height];
-    e.isUpdated = @"YES";
+    _imgView.image = [UIImage imageWithContentsOfFile:[DOCUMENT_DIR stringByAppendingPathComponent:e.url.lastPathComponent]];
     
     
 //    [_imgView sd_setImageWithURL:[NSURL URLWithString:e.url] placeholderImage:DefaultImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {

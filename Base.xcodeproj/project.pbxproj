@@ -1561,7 +1561,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hangfei Yan (UDBV36VGV9)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Henan Saifsoft Technology Company Limited";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Base/Util",
@@ -1608,7 +1608,7 @@
 					Reveal,
 				);
 				PRODUCT_NAME = Base;
-				PROVISIONING_PROFILE = "393C7606-676C-4491-AB17-33F31939350C";
+				PROVISIONING_PROFILE = "4AA9E6F3-F4E0-481A-8AF1-86D8AF8911B5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1619,7 +1619,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hangfei Yan (UDBV36VGV9)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Henan Saifsoft Technology Company Limited";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Base/Util",
@@ -1666,7 +1666,7 @@
 					Reveal,
 				);
 				PRODUCT_NAME = Base;
-				PROVISIONING_PROFILE = "393C7606-676C-4491-AB17-33F31939350C";
+				PROVISIONING_PROFILE = "4AA9E6F3-F4E0-481A-8AF1-86D8AF8911B5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

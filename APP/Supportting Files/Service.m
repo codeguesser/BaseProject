@@ -158,11 +158,11 @@
 {
     self.request.timeOutSeconds = 10;
     
-    NSString *methadName =@"get_xgt_li";
+    NSString *methadName =@"index_xgt_list";
     
     
     
-    NSString *parames = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:@{@"top":@"40"} options:0 error:nil] encoding:NSUTF8StringEncoding];
+    NSString *parames = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:@{@"category_id":@"",@"category_id": @"",  @"keyword": @"",@"order": @"",@"page": @"1",@"pagesize": @"100",@"apartment":@""} options:0 error:nil] encoding:NSUTF8StringEncoding];
     NSString *url = [NSString stringWithFormat:@"http://121.42.15.32:81/MethodIn.asmx/CaseMethad?methodName=%@&parames=%@",methadName,parames];
     self.isSupportPercentMode = NO;
     return [self loadNetworkDataWithUrl:url complete:^CGDataResult *(NSData *data,NSString * str,NSMutableDictionary *dic) {
