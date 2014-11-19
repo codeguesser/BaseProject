@@ -16,7 +16,10 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     EntityEffect *e = self.data;
-    _imgView.image = [UIImage imageWithContentsOfFile:[DOCUMENT_DIR stringByAppendingPathComponent:e.url.lastPathComponent]];
+    @autoreleasepool {
+        _imgView.image = [UIImage imageWithContentsOfFile:[DOCUMENT_DIR stringByAppendingPathComponent:e.url.lastPathComponent]];
+    }
+    
 }
 
 @end

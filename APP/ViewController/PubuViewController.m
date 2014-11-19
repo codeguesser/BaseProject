@@ -51,9 +51,6 @@
         float rightY = 0;
         int index = 0;
         for (EntityEffect *e in h.dataList) {
-
-            
-            
             if (leftY<rightY) {
                 e.x = @"5";
                 e.y = [NSString stringWithFormat:@"%f",leftY];
@@ -63,8 +60,6 @@
                 e.y = [NSString stringWithFormat:@"%f",rightY];
                 rightY = rightY+e.height.floatValue+5;
             }
-            
-            
             index++;
         }
         
@@ -74,12 +69,25 @@
 }
 -(void)getNewImageWithData:(EntityEffect *)e{
     
-    NSData *imgData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:e.url]] returningResponse:nil error:nil];
-    e.isUpdated = @"YES";
-    UIImage *img = [self smallImageWithImage:[UIImage imageWithData:imgData]];
-    [UIImagePNGRepresentation(img) writeToFile:[DOCUMENT_DIR stringByAppendingPathComponent:e.url.lastPathComponent] atomically:YES];
-    e.width = [NSString stringWithFormat:@"%f",img.size.width];
-    e.height = [NSString stringWithFormat:@"%f",img.size.height];
+    NSString *filePath = [DOCUMENT_DIR stringByAppendingPathComponent:e.url.lastPathComponent];
+    NSString *path2 = [NSString stringWithFormat:@"l_%@.%@",[e.url.lastPathComponent stringByDeletingPathExtension],e.url.lastPathComponent.pathExtension];
+    NSString *largeFilePath = [DOCUMENT_DIR stringByAppendingPathComponent:path2];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        @autoreleasepool {
+            NSData *imgData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:e.url]] returningResponse:nil error:nil];
+            e.isUpdated = @"YES";
+            UIImage *img = [self smallImageWithImage:[UIImage imageWithData:imgData]];
+            [UIImageJPEGRepresentation(img, 0) writeToFile:filePath atomically:YES];
+            e.width = [NSString stringWithFormat:@"%f",img.size.width];
+            e.height = [NSString stringWithFormat:@"%f",img.size.height];
+            [imgData writeToFile:largeFilePath atomically:YES];
+        }
+    }else{
+        UIImage *img = [UIImage imageWithContentsOfFile:filePath];
+        e.width = [NSString stringWithFormat:@"%f",img.size.width];
+        e.height = [NSString stringWithFormat:@"%f",img.size.height];
+        
+    }
     
 }
 -(UIImage *)smallImageWithImage:(UIImage *)img{
