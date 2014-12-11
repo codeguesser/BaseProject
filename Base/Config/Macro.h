@@ -35,6 +35,11 @@
 //TODO:常用的快捷方式
 //TODO:转换Unicode字符串到UTF8
 #define Uni2Utf8(unicodeStr) [[NSPropertyListSerialization propertyListFromData:[[[@"\""stringByAppendingString:[[unicodeStr stringByReplacingOccurrencesOfString:@"\\u"withString:@"\\U"] stringByReplacingOccurrencesOfString:@"\""withString:@"\\\""]] stringByAppendingString:@"\""] dataUsingEncoding:NSUTF8StringEncoding] mutabilityOption:NSPropertyListImmutable format:NULL errorDescription:NULL] stringByReplacingOccurrencesOfString:@"\\r\\n"withString:@"\n"]
+//TODO:转换UTF8到带百分号的字符串
+#define Utf2Percent(Utf8Str) (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,(CFStringRef)[[Utf8Str stringByReplacingOccurrencesOfString:@"'" withString:@"\'"]  stringByReplacingOccurrencesOfString:@"\"" withString:@"\""],NULL,(CFStringRef)@"!*'();:@&=+$,/?%#[]",kCFStringEncodingUTF8))
+//TODO:转换带百分号的字符串到UTF8
+#define Percent2Utf8(percentStr) (NSString*)CFBridgingRelease(CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,(CFStringRef)percentStr,CFSTR(""),kCFStringEncodingUTF8))
+
 #define UInt2Str(d)[NSString stringWithFormat:@"%lu",d]
 #define strFromNum(n) [NSString stringWithFormat:@"%@",n]
 //TODO:打印URL日志

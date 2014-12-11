@@ -12,7 +12,7 @@
 @implementation CGService
 -(CGDataResult  *)loadNetworkDataWithUrl:(NSString *)_url complete:(CGDataResult*(^)(NSData * data,NSString * str,NSMutableDictionary* dic))complete{
     NSLog(@"%@",[_url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
-    NSString *url = self.isSupportPercentMode?[_url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]:_url;
+    NSString *url = self.isSupportPercentMode?Utf2Percent(_url):_url;
     if ([self.request isKindOfClass:[ASIFormDataRequest class]]) {
         self.request.requestMethod = @"POST";
         NSArray *urls = [url componentsSeparatedByString:@"?"];
@@ -103,12 +103,45 @@
  *
  *  @return 生成的字典
  */
--(NSDictionary *)getDicFromData:(NSData *)d{
+-(NSDictionary *)getDicFromData:(NSData *)d1{
+    //处理掉回车、单引号引起的格式出错
+    NSString *str = [[NSString alloc]initWithData:d1 encoding:NSUTF8StringEncoding];
+    NSString *str1 = [[[str stringByReplacingOccurrencesOfString:@"\n" withString:@"%0A"]stringByReplacingOccurrencesOfString:@"\r" withString:@"%0D"] stringByReplacingOccurrencesOfString:@"\t" withString:@"%09"];
+    NSData *d = [str1 dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableDictionary *dic = [self.isXml?[XMLReader dictionaryForXMLData:d error:nil]:[NSJSONSerialization JSONObjectWithData:d options:NSJSONReadingMutableContainers error:nil] mutableCopy];
+    dic = [self dealObjectWithObj:dic];
     if (self.processMore) {
         return self.processMore(dic);
     }
     else return dic;
+}
+/**
+ *  递归调用
+ *
+ *  @param obj 要处理的对象
+ *
+ *  @return 处理过后的值
+ */
+-(id)dealObjectWithObj:(id)obj{
+    if ([obj isKindOfClass:[NSArray class]]) {
+        NSMutableArray *arr = [NSMutableArray new];
+        for (id d in (NSArray *)obj) {
+            [arr addObject:[self dealObjectWithObj:d]];
+        }
+        return arr;
+    }else if ([obj isKindOfClass:[NSDictionary class]]){
+        NSMutableDictionary *dic = [NSMutableDictionary new];
+        for (NSString *s in ((NSDictionary *)obj).allKeys) {
+            dic[s] = [self dealObjectWithObj:obj[s]];
+        }
+        return dic;
+    }else{
+        NSString *str = obj;
+        if ([str isKindOfClass:[NSString class]]) {
+            str = [[[str stringByReplacingOccurrencesOfString:@"%0A" withString:@"\n"]stringByReplacingOccurrencesOfString:@"%0D" withString:@"\r"] stringByReplacingOccurrencesOfString:@"%09" withString:@"\t"];
+        }
+        return str;
+    }
 }
 /**
  *  判断当前的这个key是不是非常重要，重要到可以作为内容的关键字
@@ -159,7 +192,7 @@
     [(CGService *)s setIsXml:NO];
     [(CGService *)s setIsCareFormat:YES];
     [(CGService *)s setRequest:request];
-    [(CGService *)s setIsSupportPercentMode:YES];
+    [(CGService *)s setIsSupportPercentMode:NO];
     [(CGService *)s request].timeOutSeconds = 10;
     return s;
 }
